@@ -1,0 +1,7 @@
+FHS（Fliesystem Hierarchy Standard)
+
+根目錄（/）：
+/usr目錄（Unix Software Resource)：存儲系統軟件資源
+/var目錄：動態數據
+
+/proc/fn/sys/：保存在內存中，如果在這裏寫入數據，內存會越來越小，直至死機
