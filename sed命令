@@ -33,3 +33,12 @@ sed c 替換腳本命令
 [address]c\用於替換的新文本
 
 sed y 轉換腳本命令
+y转换命令是唯一可以处理单个字符的sed脚本命令
+[address]y/inchars/outchars/
+转换命令会对inchars和outchars值进行一对一的映射，即inchars中的第一个字符会被转换为outchars中的第一个字符，第二个字符会被转换成outchars中的第二个字符..
+该映射过程会一直持续到处理完指定字符。如果inchars和outchars长度不同，则sed会产生一条错误信息
+inchars模式中指定字符的每个实例都会被替换成outchars模式中相同位置的那个字符
+是一个全局命令
+
+sed p 打印脚本命令
+搜索
