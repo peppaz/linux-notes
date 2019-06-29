@@ -1,0 +1,11 @@
+數字形式//文本形式
+
+[address]腳本命令
+或
+address{
+    多個腳本命令
+}
+
+文本：
+/pattern/command
+必須用正斜線將要指定的pattern封起來
