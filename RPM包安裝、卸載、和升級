@@ -1,0 +1,41 @@
+默認安裝路徑
+/etc/  配置文件安裝目錄
+/usr/bin/  可執行的命令安裝目錄
+/usr/lib/  程序所使用的函數庫保存位置
+/usr/share/doc/ 基本的軟件使用手冊保存位置
+/usr/share/man/ 幫助文件保存位置
+可以通過命令查詢
+
+與RPM包不同，源碼包的安裝通常採用手動指定安裝路徑（習慣到/usr/local/中）
+既然安裝路徑不同，同一apache程序的源碼包和RPM包就可以安裝到一臺linux服務器上（但同一時間只能開啓一個，因爲需要佔用同一個80端口）
+
+安裝：
+rpm -ivh 包全名
+-i 安裝（install）
+-v 顯示更詳細的信息（verbose）
+-h 打印#，顯示安裝進度（hash）
+可以一次性安裝多個軟件包，僅需將包全名用空格分開
+
+-nodeps：不檢測依賴性安裝
+-replacefiles：替換文件安裝
+-replacepkgs：替換軟件包安裝。如果軟件包已安裝，此選項可以把軟件包重復安裝一遍
+-force：強制安裝.-replacefiles+replacepkgs的組合
+-test：測試安裝。不安裝，只測依賴性
+-prefix：指定安裝路徑
+
+apache服務安裝完成後，可以嘗試啓動：
+service 服務名 start|stop|restart|status(查看服務狀態）
+服務啓動後，可以查看端口號80是否出現：
+netstat -tlun | grep 80
+也可以在瀏覽器中輸入linux服務器的IP地址，訪問這個apache服務器
+
+升級：
+rpm -Uvh 包全名
+-U：如果該軟件沒有安裝過則直接安裝；若安裝則升級至最新版本
+rpm -Fvh 包全名
+-F:如果該軟件沒有安裝則不會安裝，必須安裝有較低版本才能升級
+
+卸載：
+要考慮包之間的依賴性
+rpm -e 包名  （erase）
+支持-nocteps選項
